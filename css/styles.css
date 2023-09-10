@@ -47,3 +47,15 @@ li{
     flex-direction: row;
     padding: 15px 30px;
 }
+
+body{
+    background-color: white;
+}
+
+h2{
+    font-family: sans-serif;
+    color: gray;
+    padding-left: 6%;
+    border: solid;
+}
+
