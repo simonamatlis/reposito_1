@@ -39,7 +39,7 @@ li{
     color: gray;
     font-size: 18px;
     font-family: sans-serif;
-    margin: 0 5px;
+    margin: 0 2px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -58,4 +58,28 @@ h2{
     padding-left: 6%;
     border: solid;
 }
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+.caja1 ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+.caja1 li{
+    margin: 0;
+}
+.caja1 .imagen{
+    margin: 20px;
+    text-align: center;
+}
+.caja1 img{
+    width: 200px;
+    height: 270px;
+}
+
 
