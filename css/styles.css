@@ -1,5 +1,5 @@
 * {
-    font: 14pt;
+    font: 20pt;
   /* header */  
 }
 a{
@@ -9,9 +9,18 @@ li{
     list-style-type:none
 }
 
-
 .logo {
     width: 150px;
+}
+
+form{
+    display: flex;
+}
+
+.buscador{
+    padding: 25px;
+    margin-right: 200px; 
+    color:#4E5B60;
 }
 
 .header{
@@ -36,7 +45,7 @@ li{
 
 
 .home{
-    color: gray;
+    color: #4E5B60;
     font-size: 25px;
     font-family: 'Anton', sans-serif;
     margin: 0 2px;
@@ -95,5 +104,19 @@ h4{
     font-family: 'Anton', sans-serif;
     font-family: 'Antonio', sans-serif;
     text-align: center;
+    color: white;
+}
+
+.agregar_favoritos {
+    font-size: 30px;
+    color: #4E5B60;
+    background-color: #CB1C40;
+    margin-top: 10%;
+}
+
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Antonio', sans-serif;
+    text-align: left;
     color: white;
 }

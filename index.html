@@ -22,19 +22,21 @@
             <ul class="inicio">
                 <li><a class="home" href="index.html">HOME</a></li>
                 <li><a class="home" href="milista.html">FAVORITOS</a></li>
-                <li><a class="home" href="generos.html">GENEROS</a></li>
-                <li><a class="home" href="detallespeli.html">PELICULAS</a></li>
+                <li><a class="home" href="generos.html">GÉNEROS</a></li>
+                <li><a class="home" href="detallespeli.html">PELÍCULAS</a></li>
                 <li><a class="home" href="detallesserie.html">SERIES</a></li>
             </ul>
         </nav>
 
-        <form action="buscador.html" method="get" class="buscador">
-            <input type="text" id="busqueda" name="q" required>
-            <button type="submit">Buscar</button>
-        </form>          
+        <section class="barra">
+            <form id="buscador" class="form" action="./search-results.html" method="GET">
+            <input id="busqueda" type="text" name="resultadosbusqueda" value="" placeholder="Búsqueda">
+            <button id="enviarform" class="borderlupa" type="submit"></button>
+            </form>
+        </section>
 
     </header>
-<h2 class="titulos">PELICULAS POPULARES</h2>
+<h2 class="titulos">PELÍCULAS POPULARES</h2>
 <main>
     <section class="container">
         <div class="caja1">
@@ -124,7 +126,7 @@
 
     </section>
 </main>
-<h2 class="titulos">PELICULAS MAS VALORADAS</h2>
+<h2 class="titulos">PELÍCULAS MAS VALORADAS</h2>
 <main>
     <section class="container">
         <div class="caja1">
