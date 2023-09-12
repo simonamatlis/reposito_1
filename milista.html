@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Antonio&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300&family=Lato:ital,wght@1,900&family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -28,10 +31,12 @@
             </ul>
         </nav>
 
-        <form action="buscador.html" method="get" class="buscador">
-            <input type="text" id="busqueda" name="q" required>
-            <button type="submit">Buscar</button>
-        </form>          
+        <section class="barra">
+            <form id="buscador" class="form" action="search-results.html" method="GET">
+            <input id="busqueda" type="text" name="resultadosbusqueda" value="" placeholder="Búsqueda">
+            <button id="enviarform" class="detallelupa" type="submit"></button>
+            </form>
+        </section>
 
     </header>
 

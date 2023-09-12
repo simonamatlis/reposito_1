@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Antonio&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300&family=Lato:ital,wght@1,900&family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -28,15 +31,67 @@
             </ul>
         </nav>
 
-        <form action="buscador.html" method="get" class="buscador">
-            <input type="text" id="busqueda" name="q" required>
-            <button type="submit">Buscar</button>
-        </form>          
+        <section class="barra">
+            <form id="buscador" class="form" action="search-results.html" method="GET">
+            <input id="busqueda" type="text" name="resultadosbusqueda" value="" placeholder="Búsqueda">
+            <button id="enviarform" class="detallelupa" type="submit"></button>
+            </form>
+        </section>
 
     </header>
+
+    <main>
+        <section class="peliculas">
+            <div class="cajapeli1">
+                <ul>
+                    <li>
+                        <a class="imagen" href="detallespeli.html">
+                            <img src="./img/rapidos y furiosos.png" alt="">
+                        </a>
+                        <h3>Rapidos y furiosos</h3>
+                        <h4>19/5/2023</h4>
+                        <h4>"Rápidos y Furiosos" es una saga cinematográfica de acción que combina carreras de autos emocionantes, crimen y la importancia de la familia, protagonizada por Vin Diesel y Dwayne Johnson.</h4>
+                    </li>
+                    <li>
+                        <a class="imagen" href="detallespeli.html">
+                            <img src="./img/mamma mia.png" alt="">
+                        </a>
+                        <h3>Mamma mia</h3>
+                        <h4>21/8/2008</h4>
+                        <h4>Una joven ha crecido en una isla griega, educada por una madre rebelde que siempre se ha negado a revelarle la identidad del padre. Cuando parece que va a descubrir quién es el papá, aparecen tres posibles candidatos.</h4>
+                    </li>
+                    <li>
+                        <a class="imagen" href="detallespeli.html">
+                            <img src="./img/a star is born.png" alt="">
+                        </a>
+                        <h3>A star is born</h3>
+                        <h4>11/10/2018</h4>
+                        <h4>Jackson, una estrella de la música country con problemas de alcoholismo, descubre el talento de Ally, una joven cantante de la cual se enamora. Mientras la carrera de ella despega, Jackson percibe que sus días de gloria están llegando a su fin.</h4>
+                    </li>
+                    <li>
+                        <a class="imagen" href="detallespeli.html">
+                            <img src="./img/scream.png" alt="">
+                        </a>
+                        <h3>Scream</h3>
+                        <h4>12/12/1997</h4>
+                        <h4>En la universidad Sidney creía haber dejado atrás los traumáticos asesinatos que habían destrozado su vida… ¡hasta que un asesino imitador empieza a reproducir los asesinatos en serie!</h4>
+                    </li>
+                    <li>
+                        <a class="imagen" href="detallespeli.html">
+                            <img src="./img/clan.png" alt="">
+                        </a>
+                        <h3>El clan</h3>
+                        <h4>13/8/2015</h4>
+                        <h4>La historia de El Clan comienza con el fin de la dictadura y el ascenso del gobierno democrático de Raúl Alfonsín. La película se centra en uno de los muchos operadores de la dictadura que se vieron desempleados y bajo la amenaza de tener que rendir cuentas de sus actos.</h4>
+                    </li>
+                </ul>
+            </div>
+    
+        </section>
 
     <section>
         <form action="./milista.html" method="GET">
             <button class="agregar_favoritos" type="submit">☆☆☆</button>
         </form>
     </section>
+
