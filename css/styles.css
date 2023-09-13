@@ -131,24 +131,30 @@ h1 {
     text-align: left;
     color: white;
 }
+
 .peliculas{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
 }
+
 .cajapeli1 ul{
     list-style-type: none;
     padding: 0;
+    display: flex;
 }
-.cajapeli1 li{
-    margin: 0;
-}
+
 .cajapeli1 .imagen{
-    margin: 30px;
-    text-align: center;
+    margin-left: 30px;
+    text-align: left;
 }
+
 .cajapeli1 img{
     width: 220px;
     height: 280px;
+}
+.cajapeli1 h4{
+    flex: 1;
+    
 }
