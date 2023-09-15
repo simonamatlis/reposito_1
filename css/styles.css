@@ -22,11 +22,13 @@ form{
     margin-right: 200px; 
     color:#4E5B60;
     }
+
 .barra{
     padding: 15px;
     margin-right: 70px; 
     color:#4E5B60;
 }
+
 .buscador{
     height: 20px;
     width: 40px;
@@ -124,7 +126,7 @@ h5 {
     font-size: 30px;
     color: #4E5B60;
     background-color: #CB1C40;
-    margin-top: 5%;
+    margin-top: 0%;
     margin-left: 85%;
 }
 
@@ -220,90 +222,108 @@ footer {
 
     .inicio {
         flex-direction: column;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        height: 40%;
-        padding-left: 1%;
-        padding-right: 1%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
         margin: 10px 0;
+        text-align: center;
     }
 
     .barra {
-        padding-bottom: 10px;
+        padding-bottom: 5px;
     }
     
     img.logo {
-        align-self: center;
-        padding: 0%;
-        size: 5px;
+        max-width: 100%;
+        height: auto;
     }
 
     .home {
-        margin: 0 2px;
+        margin: 0px;
+        margin-right: 85px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        flex-direction: row;
-        padding: 15px 30px;
+        padding: 5px;
     }
 
-    h2{
+    .home h2 {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+
+    .home .container {
+        padding: 5px;
+    }
+
+    h2 {
         font-family: 'Anton', sans-serif;
         color: #CB1C40;
-        padding-left: 2%;
-        border: solid;
-        background-color: white;
         text-align: center;
-        font-size: 35px;
+        font-size: 25px;
+        margin: 10px 0;
+        padding: 5px;
     }
-    
-    .container{
+
+    .container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 20px;
+        padding: 10px;
     }
-    .caja1 ul{
+
+    .caja1 ul {
         list-style-type: none;
         padding: 0;
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    .caja1 li{
-        margin: 0;
+
+    .caja1 li {
+        margin: 10px;
     }
-    .caja1 .imagen{
-        margin: 30px;
+    
+    .caja1 .imagen {
+        margin: 10px;
         text-align: center;
     }
-    .caja1 img{
-        width: 220px;
-        height: 280px;
+
+    .caja1 img {
+        max-width: 100%;
+        height: auto;
     }
 
     h3 {
         text-align: center;
-        font-size: 25px;
+        font-size: 20px;
+        margin: 10px 0;
     }
 
     .peliculas{
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    
+
     .cajapeli1 {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .imagen {
         flex: 0 0 auto;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
-    
-    .imagenmm{
-        width: 300px;
-        height: 400px;
-        margin-top: 60px;
-        margin-left: 15px;
+
+    .imagenmm {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+        margin-left: 5px;
     }
     
     .info-pelicula {
@@ -312,4 +332,3 @@ footer {
         margin-left: 5px;
     }
 }
-
