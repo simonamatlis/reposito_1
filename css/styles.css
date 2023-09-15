@@ -78,6 +78,7 @@ h2{
     border: solid;
     background-color: white;
     text-align: center;
+    font-size: 35px;
 }
 
 .container{
@@ -108,6 +109,8 @@ h3 {
     font-family: 'Antonio', sans-serif;
     text-align: center;
     color: white;
+    text-decoration: none;
+    font-size: 25px;
 }
 
 h4{
@@ -128,7 +131,7 @@ h4{
 h1 {
     font-family: 'Anton', sans-serif;
     font-family: 'Antonio', sans-serif;
-    text-align: left;
+    text-align: center;
     color: white;
 }
 
@@ -148,6 +151,16 @@ h6 {
     color: white;
 }
 
+h7 {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Antonio', sans-serif;
+    font-size: 20px;
+    margin: 8px;
+    text-decoration: underline;
+    text-align: center;
+    color: #4E5B60;
+}
+
 .peliculas{
     display: flex;
 }
@@ -161,7 +174,7 @@ h6 {
     margin-bottom: 20px;
 }
 
-.imagenmm img{
+.imagenmm{
     width: 350px;
     height: 450px;
     margin-top: 30px;
@@ -172,4 +185,9 @@ h6 {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
