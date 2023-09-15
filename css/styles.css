@@ -113,10 +113,9 @@ h3 {
     font-size: 25px;
 }
 
-h4{
+h5 {
     font-family: 'Antonio', sans-serif;
-    font-family: 'Lato', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
     color: white;
 }
 
@@ -135,7 +134,7 @@ h1 {
     color: white;
 }
 
-h5 {
+h4 {
     font-family: 'Anton', sans-serif;
     font-family: 'Antonio', sans-serif;
     text-decoration: underline;
@@ -144,22 +143,14 @@ h5 {
     font-size: 15px;
 }
 
-h6 {
-    font-size: 20px;
-    font-family: 'Anton', sans-serif;
-    font-family: 'Antonio', sans-serif;
+h6{
+    font-size: 15px;
     color: white;
+    font-family: 'Antonio', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-h7 {
-    font-family: 'Anton', sans-serif;
-    font-family: 'Antonio', sans-serif;
-    font-size: 20px;
-    margin: 8px;
-    text-decoration: underline;
-    text-align: center;
-    color: #4E5B60;
-}
 
 .peliculas{
     display: flex;
@@ -175,8 +166,8 @@ h7 {
 }
 
 .imagenmm{
-    width: 350px;
-    height: 450px;
+    width: 300px;
+    height: 400px;
     margin-top: 30px;
     margin-left: 15px;
 }
@@ -184,7 +175,7 @@ h7 {
 .info-pelicula {
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 5px;
 }
 
 a {
