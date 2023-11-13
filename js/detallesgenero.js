@@ -1,2 +1,1 @@
-let apiKey = "1173214cf5e2ac8f2c0ac1c242d0ec8a"
-let peliculas;
+const apiKey = "615f39dc01eb552f3561acd616d1de7a";
