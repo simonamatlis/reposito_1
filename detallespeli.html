@@ -44,22 +44,25 @@
         <section class="peliculas">
             <div class="cajapeli1">
                     <img class="imagenmm" src="./img/mamma mia.png" alt="Mamma mia">
-                <div class="info-pelicula">
+                
+                    <div class="info-pelicula">
                     <ul> 
-                        <li><h5>Mamma mia</h5></li>
-                        <li><h6>Fecha de estreno: 21/8/2008</h6></li>
-                        <li><h6>Sinópsis: Una joven ha crecido en una isla griega, educada por una madre rebelde que siempre se ha negado a revelarle la identidad del padre. Cuando parece que va a descubrir quién es el papá, aparecen tres posibles candidatos.</h6></li>
-                        <li><h6>Duración: 1h 48m</h6></li>
-                        <li><h6><a class="generos" href="detallesgenero.html">Genero: Drama</a></li></h6></li>
-                        <li><h6>Calificación: 7.5</h6></li>
+                        <li><h2 class="itulo" ></h2></li> 
+                        <li><p class="calificacion"></p></li>
+                        <li><p class="fecha"></p></li>
+                        <li><p class="genero" href="detallesgenero.html"></p></li>
+                        <li><p class="duracion"></p></li>
+                        <li><p class="sinposis"></p></li>
                     </ul>
                    
                     <section>
                         <form action="./milista.html" method="GET">
+                            <input type="hidden" name="id" value="${id}">
                             <button class="agregar_favoritos" type="submit">☆</button>
                         </form>
                     </section>
                 </div>
+
             </div>
         </section>
     </main>
@@ -70,7 +73,10 @@
     <h3 class="paddingtopfooter">Mia Schwarzmaier - Sol Sejas - Simona Matlis</h3>
     <a class="footerpadding" href="./index.html"><img src="./img/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" alt="Logo de nuestra página" class="logofooter"></a>
 </footer>
-                            
+                  
+<script src="./js/validarForm.js"></script>
+<script src="./js/detallespeli.js"></script>
+
 </body> 
 </html>
 

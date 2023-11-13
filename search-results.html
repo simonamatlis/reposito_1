@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Antonio&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300&family=Lato:ital,wght@1,900&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@300&family=Lato:ital,wght@1,900&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header class="header">
         <div>
             <a href="./index.html"><img src="./img/Screen Shot 2023-09-08 at 09.48.30 (1).png" class="logo"></a>
         </div>
-        
+
         <nav class="nav">
             <ul class="inicio">
                 <li><a class="home" href="index.html">HOME</a></li>
@@ -32,60 +36,33 @@
 
         <section class="barra">
             <form id="buscador" class="form" action="search-results.html" method="GET">
-            <input id="busqueda" type="text" name="resultadosbusqueda" value="" placeholder="Búsqueda">
-            <button id="enviarform" class="detallelupa" type="submit">
-            </button>
+                <input id="busqueda" type="text" name="resultadosbusqueda" value="" placeholder="Búsqueda">
+                <button id="enviarform" class="detallelupa" type="submit">
+                </button>
             </form>
         </section>
 
     </header>
-    <h6>Resultados de la busqueda "Gossip Girl":</h6>
-    <main>
-        <section class="peliculas">
-            <div class="cajapeli1">
-                    <img class="imagenmm" src="./img/Gossip.png" alt="Gossip Girl">
-                <div class="info-pelicula">
-                    <ul>
-                        <li><h5>Gossip Girl</h5></li>
-                        <li><h6>Fecha de estreno: 19/9/2007</h6></li>
-                        <li><h6>Sinópsis: Un grupo de estudiantes privilegiados de Manhattan consiguen todo lo que se proponen. Hasta que un blogger anónimo se dedica a seguir cada paso que dan.</h4></li>
-                        <Li><h6><a class="generos" href="detallesgenero.html">Genero: Drama</a></li></h6></Li>
-                        <li><h6>Calificación: 7</h6></li>
-                    </ul>    
-                    
-                    <section>
-                        <form action="./milista.html" method="GET">
-                            <button class="agregar_favoritos" type="submit">☆</button>
-                        </form>
-                    </section>
-                </div>
-            </div>
-        </section>
-
-        <h6>Series relacionadas:</h6>
+    
+        <h6>Resultados de la búsqueda "Gossip Girl":</h6>
         <main>
-            <section class="container">
-                <div class="caja1">
-                    <ul>
-                        <li>
-                            <img class="imagen" src="./img/Elite.png" alt="">
-                        </li>
-                        <li>
-                            <img class="imagen" src="./img/Gossip.png" alt="">
-                        </li>
-                        <li>
-                            <img class="imagen" src="./img/Greys.png" alt="">
-                        </li>
+        <section id="ResultadosBusqueda" class="peliculas">
+            
+        </section>
         </main>
-   
-<footer>
-     <hr class="linea">
-     <a class="footerpadding" href="./index.html"><img src="./img/logo2" alt= "Logo de nuestra página" class="logofooter"></a>
-     <h3 class="paddingtopfooter">Mia Schwarzmaier - Sol Sejas - Simona Matlis</h3>
-     <a class="footerpadding" href="./index.html"><img src="./img/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" alt="Logo de nuestra página" class="logofooter"></a>
-</footer>
 
-<script src="./js/search-results.js"></script>   
+        <footer>
+            <hr class="linea">
+            <a class="footerpadding" href="./index.html"><img src="./img/logo2" alt="Logo de nuestra página"
+                    class="logofooter"></a>
+            <h3 class="paddingtopfooter">Mia Schwarzmaier - Sol Sejas - Simona Matlis</h3>
+            <a class="footerpadding" href="./index.html"><img
+                    src="./img/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg"
+                    alt="Logo de nuestra página" class="logofooter"></a>
+        </footer>
 
-</body> 
+        <script src="./js/search-results.js"></script>
+        <script src="./js/validarForm.js"></script>
+
+</body>
 </html>

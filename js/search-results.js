@@ -1,75 +1,72 @@
-document.addEventListener('DOMContentLoaded', function () {  // Obtener el formulario y agregar un evento de escucha para el envío
+
+let queryString = location.search;
+let queryStringObj = new URLSearchParams(queryString);
+let busqueda = queryStringObj.get("resultadosbusqueda");
+
+const acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
+const url_buscarpeliculas   = `https://api.themoviedb.org/3/search/movie?api_key=${acaVaLaAPIKey}&query=${busqueda}`;
+const url_buscarseries      = `https://api.themoviedb.org/3/search/tv?api_key=${acaVaLaAPIKey}&query=${busqueda}`;
     
-    const searchForm = document.getElementById('buscador');
-    
-    searchForm.addEventListener('submit', function (event) {
-      event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
-  
-      let buscar = document.getElementById("busqueda").value;   // Obtiene el valor ingresado en el campo de búsqueda del formulario
-  
-      //Construye la URL para realizar la búsqueda en la API de The Movie Database (TMDb) utilizando el valor de búsqueda y la clave de API.
-      const apiKey = "615f39dc01eb552f3561acd616d1de7a";
-      const url_buscar = `https://api.themoviedb.org/3/search/movie?query=${buscar}&api_key=${apiKey}&include_adult=false&language=en-US&page=1`;
-  
-      window.location.href = `/search-results.html?resultadosbusqueda=${encodeURIComponent(buscar)}`; // Redirigir a la página de resultados de búsqueda
-    });
-  
-    // Obtiene la cadena de consulta (queryString) de la URL para obtener detalles de la película basada en el parámetro de busqueda
-    let queryString = location.search;
-    let queryParams = new URLSearchParams(queryString);
-    let pelicula = queryParams.get("busqueda");
-    let titulos = document.querySelector(".titulos");
-  
-    const apiKey = "615f39dc01eb552f3561acd616d1de7a";
-    const url = `https://api.themoviedb.org/3/search/movie?query=${pelicula}&api_key=$615f39dc01eb552f3561acd616d1de7a&include_adult=false&language=en-US&page=1`;
-  
-    fetch(url)
-      .then(function (response) {
-        return response.json(); // Convertir la información a formato JSON
-      })
-      .then(function (data) {
-        console.log(data); // Manejar los datos según tus necesidades
-        let informacion = data.results;
-        let buscados = ""; // Agregar esta variable
-        
-        if (informacion.length == 0) {
-            empty.innerText = `No se encontraron resultados para ${pelicula}`;
+console.log(url_buscarpeliculas);
+
+fetch(url_buscarpeliculas)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        let tituloBusqueda = document.querySelector("h6");
+
+        if (data.results.length === 0) {
+            tituloBusqueda.innerText = `No se ha encontrado resultado para: ${busqueda}`;
         } else {
-            informacion.forEach(el => {
-                console.log('pase');
-                if (el.poster_path == null) {
-                    buscados += `<article class="bloquedetail">
-                                <a href="./detail-movie.html?movie_id=${el.id}"> 
-                                <img class="portadadetail" src="https://image.tmdb.org/t/p/w500/${el.poster_path}" alt="Portada">
-                                </a>
-                                <div class="resultados">
-                                <a href="detailmovie.html">
-                                <h2 class="titulo-movie-search">${(el.media_type == 'movie') ? el.title : el.name}</h2>
-                                </a>
-                                <h3 class="estreno-search"> Fecha de estreno: ${(el.media_type == 'movie') ? el.release_date : el.first_air_date}</h3>
-                                <p class="sinopsis-search">${el.overview}</p>
-                                </div>
-                                </article>`;
-                } else {
-                    buscados += `<article class="bloquedetail">
-                                    <a href="./detail-movie.html?movie_id=${el.id}"> 
-                                    <img class="portadadetail" src="https://image.tmdb.org/t/p/w500/${el.poster_path}" alt="Portada">
-                                    </a>
-                                    <div class="resultados">
-                                    <a href="detailmovie.html">
-                                    <h2 class="titulo-movie-search">${(el.media_type == 'movie') ? el.title : el.name}</h2>
-                                    </a>
-                                    <h3 class="estreno-search"> Fecha de estreno: ${(el.media_type == 'movie') ? el.release_date : el.first_air_date}</h3>
-                                    <p class="sinopsis-search">${el.overview}</p>
-                                    </div>
-                                    </article>`;
-                }
-            });
+            tituloBusqueda.innerText = `Resultados de la búsqueda para: ${busqueda}`;
+        }
+
+        let resultadosBusqueda = document.getElementById("ResultadosBusqueda");
+        resultadosBusqueda.innerHTML = ""; // Limpiar el contenido anterior
+
+        for (let i = 0; i < data.results.length; i++) {
+            const element = data.results[i];
+            resultadosBusqueda.innerHTML += 
+            `<div class="cajapeli1">
+                <h3>${element.title}</h3>
+                <h4>${element.release_date}<h4>
+                <a href="./detallespeli.html"><img class="imagenmm" src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title}"></a>
+            </div>`;
         }
     })
     .catch(function (error) {
-        console.log("Error:", error);
+        console.log(error);
     });
-});
-      
-  
+
+fetch(url_buscarseries)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        let tituloBusqueda = document.querySelector("h6");
+
+        if (data.results.length === 0) {
+            tituloBusqueda.innerText = `No se ha encontrado resultado para: ${busqueda}`;
+        } else {
+            tituloBusqueda.innerText = `Resultados de la búsqueda para: ${busqueda}`;
+        }
+
+        let resultadosBusqueda = document.getElementById("ResultadosBusqueda");
+        resultadosBusqueda.innerHTML = ""; // Limpiar el contenido anterior
+
+        for (let i = 0; i < data.results.length; i++) {
+            const element = data.results[i];
+            resultadosBusqueda.innerHTML += `
+            <div class="cajapeli1">
+                <h3>${element.title}</h3>
+                <h4>${element.release_date}<h4>
+                <a href="./detallespeli.html"><img class="imagenmm" src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title}"></a>
+            </div>`;
+        }
+    })
+    .catch(function (error) {
+        console.log(error);
+    });

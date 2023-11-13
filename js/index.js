@@ -18,13 +18,12 @@ fetch(url_películaspopulares)
   let contenido = "";
 
   for (let i = 0; i < 5; i++) {
-          console.log(miData[i]);
           contenido += `<li>
                         <a class="imagen" href="detallespeli.html?id=${miData[i].id}">
                             <img src="https://image.tmdb.org/t/p/w500/${miData[i].poster_path}" alt="">
                         </a>
                         <h3>${miData[i].title}</h3>
-                        <h4>${miData[i].release_data}</h4>
+                        <h4>${miData[i].release_date}</h4>
                         </li>`
   }
 
@@ -58,8 +57,8 @@ fetch(url_seriespopulares)
                         <a class="imagen" href="detallesserie.html?id=${miData[i].id}"">
                             <img src="https://image.tmdb.org/t/p/w500/${miData[i].poster_path}" alt="">
                         </a>
-                        <h3>${miData[i].title}</h3>
-                        <h4>${miData[i].release_data}</h4>
+                        <h3>${miData[i].name}</h3>
+                        <h4>${miData[i].first_air_date}</h4>
                         </li>`
   }
 
@@ -78,7 +77,7 @@ let url_peliculasmasvaloradas = `https://api.themoviedb.org/3/movie/top_rated?ap
 let ContainerPeliculasMasValoradas = document.querySelector("#ContainerPeliculasMasValoradas")
 console.log(ContainerPeliculasMasValoradas)
 
-fetch(url_seriespopulares) 
+fetch(url_peliculasmasvaloradas) 
   .then(function (response) {
   return response.json(); 
   }) 
@@ -89,17 +88,17 @@ fetch(url_seriespopulares)
   let contenido = "";
 
   for (let i = 0; i < 5; i++) {
-          console.log(miData[i]);
+    console.log(miData[i]);
           contenido += `<li>
                         <a class="imagen" href="./detallespeli.html?id=${miData[i].id}">
                             <img src="https://image.tmdb.org/t/p/w500/${miData[i].poster_path}" alt="">
                         </a>
                         <h3>${miData[i].title}</h3>
-                        <h4>${miData[i].release_data}</h4>
+                        <h4>${miData[i].release_date}</h4>
                         </li>`
   }
 
-  ContainerPeliculasMasValoradas = contenido;
+  ContainerPeliculasMasValoradas.innerHTML = contenido;
 })
 
 .catch(function (error) {

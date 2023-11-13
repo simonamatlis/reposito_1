@@ -1,9 +1,9 @@
-const apiKey = "615f39dc01eb552f3561acd616d1de7a";
+let acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5"
     
-const peliculasSection = document.querySelector(".peliculas-container");
-const seriesSection = document.querySelector(".series-container");
+let peliculasSection = document.querySelector(".peliculas-container");
+let seriesSection = document.querySelector(".series-container");
 
-const favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; //obtiene el valor almacenado en el "favoritos" como cadena y la convierte en JSON. Si no hay datos en el almacenamiento o si hay un problema al convertir la cadena, se obtendrá null. || para proporcionar un valor predeterminado en caso de que el resultado de la operación anterior sea null. En este caso, se establece un array vacío como valor predeterminado.
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; //obtiene el valor almacenado en el "favoritos" como cadena y la convierte en JSON. Si no hay datos en el almacenamiento o si hay un problema al convertir la cadena, se obtendrá null. || para proporcionar un valor predeterminado en caso de que el resultado de la operación anterior sea null. En este caso, se establece un array vacío como valor predeterminado.
 const section = document.querySelector(".container");
 let favs = ""; //creamos variable favs para almacenar las peliculas/ series favoritas del usuario
 
