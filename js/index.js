@@ -1,114 +1,107 @@
-const apiKey = "615f39dc01eb552f3561acd616d1de7a";
-
-let recommended_series = document.querySelector(".container-recommended-series");
-let seriesp = document.querySelector(".container-popular-series");
-let peliculasmv = document.querySelector(".container-top-rated-movies");
-
-// Se definen las URLs para obtener datos de la API de TMDb sobre series populares, películas populares y películas mejor valoradas
-
-let url_películaspopulares = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc' 
+let acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5"
 
 // PELÍCULAS POPULARES
-fetch(url_películaspopulares)
-   .then(function (response) {
-    return response.json(); // Convertir la información a formato JSON
-   }) 
+let url_películaspopulares = `https://api.themoviedb.org/3/movie/popular?api_key=${acaVaLaAPIKey}`;
 
-  .then(function (data) {
-    let peliculas = "";
-    console.log(data);
-    for (let i = 0; i < 5; i++) {
-        
-      let titulo = data.results[i].name;
-      let imagenes = data.results[i].poster_path;
-      let id = data.results[i].id;
-      let fecha = data.results[i].first_air_date;
+//recupero del DOM
+let ContainerPeliculasPopulares = document.querySelector("#ContainerPeliculasPopulares");
+console.log(ContainerPeliculasPopulares); 
 
-      peliculas += `<article class="bloque-portada"> 
-                            <a class="portadahome" href="./detail-serie.html?id=${id}">
-                            <img class="portada" src="https://image.tmdb.org/t/p/w500/${imagenes}">
-                            <p class="texto-portada"> <a class="titulospeliculas" href="./detail-movie.html"> ${titulo} </a>  </p>
-                            <p class="fecha-portada"> ${fecha}</p>
-                            </a>
-                          </article>`;
-    }
-    // Se inserta el HTML en el elemento del DOM
-    recommended_series.innerHTML = peliculas;
-    return data;
-  })
-
-  .catch(function (error) {
-    console.log("Error:", error);
-  });
-
-let url_seriespopulares = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1'
-
-  // SERIES POPULARES
-  fetch(url_seriespopulares)
+fetch(url_películaspopulares) 
   .then(function (response) {
-    return response.json(); 
+  return response.json(); // Convertir la información a formato JSON
   }) 
-
   .then(function (data) {
-    let series = " ";
-    for (let i = 0; i < 5; i++) {
-      
-      let titulo = data.results[i].title;
-      let imagenes = data.results[i].poster_path;
-      let id = data.results[i].id;
-      let fecha = data.results[i].release_date;
+  console.log(data.results);
 
-      series += ` <article class="bloque-portada"> 
-                            <a class="portadahome" href="./detail-movie.html?id=${id}">
-                            <img class="portada" src="https://image.tmdb.org/t/p/w500/${imagenes}">
-                            <p class="texto-portada"> <a class="titulospeliculas" href="./detail-movie.html"> ${titulo} </a>  </p>
-                            <p class="fecha-portada"> ${fecha}</p>
-                            </a>
-                        </article>`;
-    }
+  let miData = data.results; //todas mis peliculas
+  let contenido = "";
 
-    seriesp.innerHTML = series;
-    return data;
-  })
-
-  .catch(function (error) {
-    console.log("Error:", error);
-  });
-
-  
-
-let url_películasmasvaloradas = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
-
-  // PELÍCULAS MÁS VALORADAS
-  fetch(url_películasmasvaloradas)
-  .then(function (response) {
-    return response.json(); 
-  }) 
-
-  .then(function (data) {
-    let peliculas = "";
-
-    for (let i = 0; i < 5; i++) {
-      
-      let titulo = data.results[i].title;
-      let imagenes = data.results[i].poster_path;
-      let id = data.results[i].id;
-      let fecha = data.results[i].release_date;
-
-    
-      peliculas += ` <article class="bloque-portada"> 
-                        <a class="portadahome" href="./detail-movie.html?id=${id}">
-                        <img class="portada" src="https://image.tmdb.org/t/p/w500/${imagenes}">
-                        <p class="texto-portada"> <a class="titulospeliculas" href="./detail-movie.html"> ${titulo} </a>  </p>
-                        <p class="fecha-portada"> ${fecha}</p>
+  for (let i = 0; i < 5; i++) {
+          console.log(miData[i]);
+          contenido += `<li>
+                        <a class="imagen" href="detallespeli.html?id=${miData[i].id}">
+                            <img src="https://image.tmdb.org/t/p/w500/${miData[i].poster_path}" alt="">
                         </a>
-                     </article>`;
-    }
+                        <h3>${miData[i].title}</h3>
+                        <h4>${miData[i].release_data}</h4>
+                        </li>`
+  }
 
-    peliculasmv.innerHTML = peliculas;
-    return data;
-  })
+  ContainerPeliculasPopulares.innerHTML = contenido;
+    
+})
 
-  .catch(function (error) {
-    console.log("Error:", error);
+.catch(function (error) {
+  console.log(error);
+  });
+
+//SERIES POPULARES
+let url_seriespopulares = `https://api.themoviedb.org/3/tv/popular?api_key=${acaVaLaAPIKey}`;
+
+let ConteinerSeriesPopulares = document.querySelector("#ConteinerSeriesPopulares")
+console.log(ConteinerSeriesPopulares);
+
+fetch(url_seriespopulares) 
+  .then(function (response) {
+  return response.json(); 
+  }) 
+  .then(function (data) {
+  console.log(data.results);
+
+  let miData = data.results; 
+  let contenido = "";
+
+  for (let i = 0; i < 5; i++) {
+          console.log(miData[i]);
+          contenido += `<li>
+                        <a class="imagen" href="detallesserie.html?id=${miData[i].id}"">
+                            <img src="https://image.tmdb.org/t/p/w500/${miData[i].poster_path}" alt="">
+                        </a>
+                        <h3>${miData[i].title}</h3>
+                        <h4>${miData[i].release_data}</h4>
+                        </li>`
+  }
+
+  ContainerSeriesPopulares.innerHTML = contenido;
+    
+})
+
+.catch(function (error) {
+  console.log(error);
+  });
+
+//PELÍCULAS MAS VALORADAS
+
+let url_peliculasmasvaloradas = `https://api.themoviedb.org/3/movie/top_rated?api_key=${acaVaLaAPIKey}`;
+
+let ContainerPeliculasMasValoradas = document.querySelector("#ContainerPeliculasMasValoradas")
+console.log(ContainerPeliculasMasValoradas)
+
+fetch(url_seriespopulares) 
+  .then(function (response) {
+  return response.json(); 
+  }) 
+  .then(function (data) {
+  console.log(data.results);
+
+  let miData = data.results; 
+  let contenido = "";
+
+  for (let i = 0; i < 5; i++) {
+          console.log(miData[i]);
+          contenido += `<li>
+                        <a class="imagen" href="./detallespeli.html?id=${miData[i].id}">
+                            <img src="https://image.tmdb.org/t/p/w500/${miData[i].poster_path}" alt="">
+                        </a>
+                        <h3>${miData[i].title}</h3>
+                        <h4>${miData[i].release_data}</h4>
+                        </li>`
+  }
+
+  ContainerPeliculasMasValoradas = contenido;
+})
+
+.catch(function (error) {
+  console.log(error);
   });
