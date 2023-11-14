@@ -1,90 +1,89 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
-    
-    let qs = location.search;
-    let qsObj = new URLSearchParams(qs);
-    let id_movie = qsObj.get("id_movie");
-  
-    let imagen = document.querySelector(".imagenmm");
-    let titulo = document.querySelector(".titulo");
-    let fecha = document.querySelector(".fecha");
-    let genero = document.querySelector(".genero");
-    let duracion = document.querySelector(".duracion");
-    let calificacion = document.querySelector(".calificacion");
-    let sinopsis = document.querySelector(".sinopsis");
-    let button = document.querySelector(".agregar_favoritos"); 
-    let verRecomendaciones = document.querySelector(".recomendaciones-btn");
-    let recomendacionesList = document.querySelector(".recomendaciones-list");
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtener el ID de la película o serie desde la URL (puedes ajustar según tu URL)
+    const urlParams = new URLSearchParams(window.location.search);
+    const id_pelicula = urlParams.get('id'); 
 
-  
-    let url_detallespeli = `https://api.themoviedb.org/3/movie/${id_movie}?api_key=${acaVaLaAPIKey}`; 
-  
-    console.log(url_detallespeli);
-  
-    fetch(url_detallespeli)
-    .then(response => response.json())
+    // Obtener detalles de la película o serie
+    obtenerDetalles(id_pelicula); 
 
-    .then(data => {
-        console.log(data);
-
-        imagen.src = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
-        titulo.innerText = data.title;
-        duracion.innerText = `Duracion: ${data.runtime} minutos`;
-        calificacion.innerText = `Popularidad: ${data.popularity}`;
-        fecha.innerText = `Fecha de estreno: ${data.release_date}`;
-        sinopsis.innerText = `Sinopsis: ${data.overview}`;
-        let generos = data.genres;
-        let generosSerie = "";
-        let generoContainer = document.querySelector(".genero");
-  
-        for (let i = 0; i < generos.length; i++) {
-            generosSerie += `<a class="genero" href="./detalle-genero.html?id=${generos[i].id}"> ${generos[i].name}</a>`;
-        };
-  
-        generoContainer.innerHTML += generosSerie;
-  
-    })
-    .catch(error => console.log(error));
-
-    // RECOMENDACIONES
-    let recomendacionesUrl = `https://api.themoviedb.org/3/movie/${id_movie}/recommendations?api_key=${acaVaLaAPIKey}`;
-
-    verRecomendaciones.addEventListener("click", function () {
-        fetch(recomendacionesUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.results.length === 0) {
-                alert("No hay recomendaciones");
-            }
-
-            let li = "";
-            console.log(data.results);
-
-            for (let i = 0; i < 5; i++) {
-                let id = data.results[i].id;
-                let title = data.results[i].title;
-                let foto = data.results[i].poster_path;
-
-                li += `<li class='li recomendados-item'>
-                            <p class='titulos'>${title}</p>
-                            <a href='detalle-Pelicula.html?idPelicula=${id}'>
-                                <img class="imgPelis" src="https://image.tmdb.org/t/p/w500/${foto}" >
-                            </a>
-                        </li>`;
-            }
-
-            recomendacionesList.innerHTML = li;
-            recomendacionesList.classList.add("display-none");
-        })
-        .catch(error => console.log("Error: " + error));
+    // Manejar clic en "Ver Recomendaciones"
+    const btnVerRecomendaciones = document.querySelector('.ver-recomendaciones');
+    btnVerRecomendaciones.addEventListener('click', function () {
+        mostrarRecomendaciones(id_pelicula); 
     });
 });
-        
-    // // Que se abran las recomendaciones
-    //   var recom = document.querySelector('#ver-recomendaciones')
-    //   recom.addEventListener ("click", function() {
-        
-    //         var ul = document.querySelector("ul.recomendaciones") // se abren las recomendaciones
-    //         ul.classList.toggle("display-none")
-    // })
-  
+
+function obtenerDetalles(id_pelicula) {
+    let acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
+    
+    let url_detallespeli = `https://api.themoviedb.org/3/movie/${id_pelicula}?api_key=${acaVaLaAPIKey}`;
+
+    fetch(url_detallespeli)
+        .then(response => response.json())
+        .then(data => {
+            actualizarDetalles(data);
+        })
+        .catch(error => console.error('Error al obtener detalles:', error));
+}
+
+function mostrarRecomendaciones(id_pelicula) {
+    let url_detallespeli = `https://api.themoviedb.org/3/movie/${id_pelicula}/recommendations?api_key=${acaVaLaAPIKey}`;
+
+
+    fetch(url_detallespeli)
+        .then(response => response.json())
+        .then(data => {
+            // Actualizar la interfaz con las recomendaciones obtenidas
+            mostrarRecomendacionesEnInterfaz(data);
+        })
+        .catch(error => console.error('Error al obtener recomendaciones:', error));
+}
+
+function actualizarDetalles(detalles) {
+    // Actualizar los elementos HTML con los detalles de la película o serie
+    const tituloElement = document.querySelector('.titulo');
+    const calificacionElement = document.querySelector('.calificacion');
+    const fechaElement = document.querySelector('.fecha');
+    const generoElement = document.querySelector('.genero');
+    const duracionElement = document.querySelector('.duracion');
+    const sinopsisElement = document.querySelector('.sinopsis');
+    const imagenElement = document.querySelector('.imagenmm');
+
+    tituloElement.textContent = detalles.titulo;
+    calificacionElement.textContent = `Calificación: ${detalles.calificacion}`;
+    fechaElement.textContent = `Fecha de Estreno: ${detalles.fecha}`;
+    generoElement.textContent = `Género: ${detalles.genero}`;
+    duracionElement.textContent = `Duración: ${detalles.duracion} minutos`; // Solo si es una película
+    sinopsisElement.textContent = `Sinopsis: ${detalles.sinopsis}`;
+    imagenElement.src = detalles.urlImagen;
+}
+
+function mostrarRecomendacionesEnInterfaz(recomendaciones) {
+    // Mostrar las recomendaciones en la interfaz
+    const recomendacionesList = document.querySelector('.recomendaciones-list');
+    recomendacionesList.innerHTML = ''; // Limpiar la lista antes de agregar las nuevas recomendaciones
+
+    recomendaciones.forEach(recomendacion => {
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = recomendacion.urlImagen;
+        img.alt = recomendacion.titulo;
+        li.appendChild(img);
+
+        // Manejar clic en una recomendación para redirigir al detalle
+        li.addEventListener('click', function () {
+            redirigirADetalle(recomendacion.id);
+        });
+
+        recomendacionesList.appendChild(li);
+    });
+
+    // Mostrar la lista de recomendaciones
+    const recomendacionesSection = document.querySelector('#recomendacionesC');
+    recomendacionesSection.classList.remove('display-none');
+}
+
+function redirigirADetalle(id) {
+    // Redirigir a la página de detalle con el ID proporcionado
+    window.location.href = `detalle.html?id=${id}`;
+}
