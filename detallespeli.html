@@ -43,26 +43,27 @@
     <main>
         <section class="peliculas">
             <div class="cajapeli1">
-                    <img class="imagenmm" src="./img/mamma mia.png" alt="Mamma mia">
-                
-                    <div class="info-pelicula">
+                <img class="imagenmm" src="" alt="Mamma mia">
+                <div class="info-pelicula">
                     <ul> 
-                        <li><h2 class="itulo" ></h2></li> 
-                        <li><p class="calificacion"></p></li>
-                        <li><p class="fecha"></p></li>
-                        <li><p class="genero" href="detallesgenero.html"></p></li>
-                        <li><p class="duracion"></p></li>
-                        <li><p class="sinposis"></p></li>
+                        <li><h5 a class="titulo"></h5></li> 
+                        <li><h6 a class="calificacion"></h6></li>
+                        <li><h6 a class="fecha"></h6></li>
+                        <li><h6 a class="genero" href="detallesgenero.html"></h6></li>
+                        <li><h6 a class="duracion"></h6></li>
+                        <li><h6 a class="sinopsis"></h6></li>
                     </ul>
-                   
                     <section>
                         <form action="./milista.html" method="GET">
-                            <input type="hidden" name="id" value="${id}">
+                            <input type="hidden" name="id" value="">
                             <button class="agregar_favoritos" type="submit">☆</button>
                         </form>
                     </section>
+                <section class="recomendaciones">
+                    <button class="ver-recomendaciones uk-button uk-button-text recomendaciones-btn" type="button">Ver Recomendaciones</button>
+                    <ul class="recomendaciones-list display-none"></ul>
+                </section>
                 </div>
-
             </div>
         </section>
     </main>

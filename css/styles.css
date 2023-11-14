@@ -89,10 +89,31 @@ h2{
     justify-content: space-between;
     padding: 20px;
 }
+
 .conteiner ul{
     list-style-type: none;
     padding: 0;
     display: flex;
+    gap: 10px; /* Agregar espacio horizontal entre elementos li */
+    flex-wrap: wrap; /* Permitir envolver elementos a la siguiente línea si no hay suficiente espacio */
+}
+
+.conteiner ul li {
+    margin-bottom: 10px; /* Agregar espacio vertical entre elementos li */
+}
+
+.conteiner ul li a.imagen img {
+    width: 100%; 
+    margin-bottom: 10px; 
+    margin-right: 10px; /* Agregar margen a la derecha de cada imagen */
+}
+
+.conteiner ul li h3 {
+    margin-top: 5px; /* Agrega espacio superior entre los títulos y las imágenes */
+}
+
+.conteiner ul li h4 {
+    margin-bottom: 10px; 
 }
 
 .container .imagen{
@@ -122,10 +143,19 @@ h5 {
 
 .agregar_favoritos {
     font-size: 30px;
-    color: #4E5B60;
+    color: white;
     background-color: #CB1C40;
     margin-top: 0%;
     margin-left: 85%;
+}
+
+.ver-recomendaciones {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Antonio', sans-serif;
+    font-size: 20px;
+    color: white;
+    background-color: #CB1C40;
+    margin: 15px;
 }
 
 h1 {
