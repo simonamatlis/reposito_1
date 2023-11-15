@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Obtener el ID de la película o serie desde la URL (puedes ajustar según tu URL)
     const urlParams = new URLSearchParams(window.location.search);
-    const id_pelicula = urlParams.get('id'); 
+    const id_pelicula = urlParams.get('id');  
+
+    // Resto del código...
+    
+    const acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
+    const url_detallespeli = `https://api.themoviedb.org/3/movie/${id_pelicula}?api_key=${acaVaLaAPIKey}`;
+
 
     // Obtener detalles de la película o serie
     obtenerDetalles(id_pelicula); 
@@ -9,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Manejar clic en "Ver Recomendaciones"
     const btnVerRecomendaciones = document.querySelector('.ver-recomendaciones');
     btnVerRecomendaciones.addEventListener('click', function () {
-        mostrarRecomendaciones(id_pelicula); 
+    mostrarRecomendaciones(id_pelicula); 
     });
 });
 
@@ -87,3 +93,5 @@ function redirigirADetalle(id) {
     // Redirigir a la página de detalle con el ID proporcionado
     window.location.href = `detalle.html?id=${id}`;
 }
+
+

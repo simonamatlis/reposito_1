@@ -1,7 +1,7 @@
 
 let queryString = location.search;
 let queryStringObj = new URLSearchParams(queryString);
-let busqueda = queryStringObj.get("resultadosbusqueda");
+let busqueda = queryStringObj.get("busqueda");
 
 const acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
 const url_buscarpeliculas   = `https://api.themoviedb.org/3/search/movie?api_key=${acaVaLaAPIKey}&query=${busqueda}`;
