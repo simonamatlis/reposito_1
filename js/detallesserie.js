@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function (){
 
     const APIKey = "5cbe5fc6bbcd1b46780e719884ca45e5"
 
-    fetch('https://api.themoviedb.org/3/tv/${id}?language=es-AR&api_key=${APIKey}')
+    fetch(`https://api.themoviedb.org/3/tv/${id}?language=es-AR&api_key=${APIKey}`)
     .then(response => response.json())
     .then(serie =>  {
         const detalle_element = document.getElementById('DetallesSerie');
 
         const image = document.createElement('img');
-        image.src = 'https://image.tmdb.org/t/p/w500${serie.poster_path}';
+        image.src = `https://image.tmdb.org/t/p/w500${serie.poster_path}`;
         image.alt = serie.name;
         image.classList.add('imagenmm');
 
@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", function (){
         title_li.append(title);
         const rating_li =document.createElement('li');
         const rating = document.createElement('h6');
-        rating.textContent = 'Rating: ${serie.vote_average}';
+        rating.textContent = `Rating: ${serie.vote_average}`;
         rating_li.append(rating);
         const fecha_li = document.createElement('li');
         const fecha = document.createElement('h6');
-        fecha.textContent = 'Fecha de estreno: ${serie.first_air_date}';
+        fecha.textContent = `Fecha de estreno: ${serie.first_air_date}`;
         fecha_li.append(fecha);
         const sinopsis_li = document.createElement('li');
         const sinopsis = document.createElement('h6');
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function (){
       generos.classList.add("genero");
       const generosLinks = serie.genres.map(genero => {
         const enlace = document.createElement('a');
-        enlace.href = 'detallesgenero.html?id=${genero.id}&nombre=${genero.name}&tipo=serie';
+        enlace.href = `detallesgenero.html?id=${genero.id}&nombre=${genero.name}&tipo=serie`;
         enlace.textContent = `${genero.name} `;
 
         return enlace;
@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", function (){
 
     .catch(err => console.error(err));
 
-fetch('https://api.themoviedb.org/3/tv/${id}/recommendations?language=es-AR&page=1&api_key=${APIKey}')
+fetch(`https://api.themoviedb.org/3/tv/${id}/recommendations?language=es-AR&page=1&api_key=${APIKey}`)
     .then(response => response.json())
     .then(response => {
         const recomendaciones_element = document.getElementById('Recomendaciones');
         const recomendaciones = response.results;
         recomendaciones.forEach(serie => {
             const link = document.createElement('a');
-            link.href = 'detalleserie.html?id=${serie.id}';
+            link.href = `detalleserie.html?id=${serie.id}`;
             const serie_div = document.createElement('div');
             serie_div.classList.add('peli-preview');
 
@@ -67,7 +67,7 @@ fetch('https://api.themoviedb.org/3/tv/${id}/recommendations?language=es-AR&page
             serie_titulo.classList.add('peli-preview-titulo');
 
             const serie_poster = document.createElement('img');
-            serie_poster.src = 'https://image.tmdb.org/t/p/w500${serie.poster_path}';
+            serie_poster.src = `https://image.tmdb.org/t/p/w500${serie.poster_path}`;
             serie_poster.alt = serie.title;
             serie_poster.classList.add('peli-preview-poster');
 
