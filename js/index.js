@@ -27,7 +27,7 @@ fetch(url_películaspopulares)
                         </li>`
   }
 
-  ContainerPelciulasPopulares.innerHTML = contenido;  
+  ContainerPeliculasPopulares.innerHTML = contenido;  
 })
 
 .catch(function (error) {
