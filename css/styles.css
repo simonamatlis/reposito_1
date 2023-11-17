@@ -1,6 +1,6 @@
 * {
     font: 20pt;
-  /* header */  
+   
 }
 a{
     text-decoration: none;    
@@ -34,7 +34,6 @@ form{
     width: 40px;
 }
 
-
 .header{
     display: flex;
     flex-wrap: wrap;
@@ -54,7 +53,6 @@ form{
     width: 20px;
     height: 20px;
 }
-
 
 .home{
     color: #4E5B60;
@@ -88,32 +86,6 @@ h2{
     flex-wrap: wrap; 
     justify-content: space-between;
     padding: 20px;
-}
-
-.conteiner ul{
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    gap: 10px; /* Agregar espacio horizontal entre elementos li */
-    flex-wrap: wrap; /* Permitir envolver elementos a la siguiente línea si no hay suficiente espacio */
-}
-
-.conteiner ul li {
-    margin-bottom: 10px; /* Agregar espacio vertical entre elementos li */
-}
-
-.conteiner ul li a.imagen img {
-    width: 100%; 
-    margin-bottom: 10px; 
-    margin-right: 10px; /* Agregar margen a la derecha de cada imagen */
-}
-
-.conteiner ul li h3 {
-    margin-top: 5px; /* Agrega espacio superior entre los títulos y las imágenes */
-}
-
-.conteiner ul li h4 {
-    margin-bottom: 10px; 
 }
 
 .container .imagen{
@@ -270,7 +242,6 @@ h6{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 
 @media (max-width: 400px) {
 
