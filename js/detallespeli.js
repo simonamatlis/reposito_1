@@ -46,10 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(err => console.error(err));
 });
 
+
 function toggleRecomendaciones() {
   const recomendaciones = document.getElementById('Recomendaciones');
   recomendaciones.classList.toggle('lista-pelis');
   recomendaciones.classList.toggle('display-none');
 }
-
-

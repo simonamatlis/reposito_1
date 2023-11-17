@@ -5,15 +5,15 @@ let seriesSection = document.querySelector(".series-container");
 
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; 
 const section = document.querySelector(".container");
-let favs = ""; //nueva variable favs para almacenar las pelis/ series favoritas
+let favs = ""; 
 
 console.log(favoritos);
 
-if (favoritos == null || favoritos.length === 0) { // para cuando no hay favoritos
+if (favoritos == null || favoritos.length === 0) { 
     peliculasSection.innerHTML = "<p>No hay elementos en favoritos</p>";
     seriesSection.innerHTML = "<p>No hay elementos en favoritos</p>";
 } else {
-    const fetchPromises = favoritos.map((favorito) => { // nuevo array
+    const fetchPromises = favoritos.map((favorito) => { 
         let url = `https://api.themoviedb.org/3/movie/${favorito}?api_key=${apiKey}&language=en-US`;
 
     return fetch(url)
@@ -44,7 +44,7 @@ if (favoritos == null || favoritos.length === 0) { // para cuando no hay favorit
 
 Promise.all(fetchPromises) 
 .then((favsArray) => {
-    favsArray.forEach((fav) => { //  película o serie
+    favsArray.forEach((fav) => { 
         if (fav.includes("detail-movie")) {
             peliculasSection.innerHTML += fav;
         } else {

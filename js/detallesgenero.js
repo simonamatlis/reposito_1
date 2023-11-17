@@ -27,8 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
 `).join('');
 
       })
-      .catch(err => console.error(err));
-  } else if (tipo === 'serie') {
+      .catch(function (error) {
+        console.log(error);
+        });
+  } 
+  
+  else if (tipo === 'serie') {
     fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${id}&api_key=${APIKey}`)
       .then(response => response.json())
       .then(response => {
