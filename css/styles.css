@@ -185,6 +185,7 @@ h6{
 
 .peliculas{
     display: flex;
+    flex-direction: column;
 }
 
 .conteiner{
