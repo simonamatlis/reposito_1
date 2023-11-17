@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (){
-    const urlParams = newURLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
 
     const APIKey = "5cbe5fc6bbcd1b46780e719884ca45e5"
