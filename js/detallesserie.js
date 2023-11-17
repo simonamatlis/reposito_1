@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function (){
     const APIKey = "5cbe5fc6bbcd1b46780e719884ca45e5"
 
     fetch(`https://api.themoviedb.org/3/tv/${id}?language=es-AR&api_key=${APIKey}`)
-    .then(response => response.json())
-    .then(serie =>  {
+        .then(response => response.json())
+        .then(serie =>  {
         const detalle_element = document.getElementById('DetallesSerie');
 
         const image = document.createElement('img');
