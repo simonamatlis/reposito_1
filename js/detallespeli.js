@@ -1,97 +1,92 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Obtener el ID de la película o serie desde la URL (puedes ajustar según tu URL)
+document.addEventListener("DOMContentLoaded", function (){
     const urlParams = new URLSearchParams(window.location.search);
-    const id_pelicula = urlParams.get('id');  
+    const id = urlParams.get('id');
 
-    // Resto del código...
-    
-    const acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
-    const url_detallespeli = `https://api.themoviedb.org/3/movie/${id_pelicula}?api_key=${acaVaLaAPIKey}`;
+    const APIKey = "5cbe5fc6bbcd1b46780e719884ca45e5"
 
+    fetch(`https://api.themoviedb.org/3/movie/${id}?language=es-AR&api_key=${APIKey}`)
+    .then(response => response.json())
+    .then(pelicula =>  {
+        const detalle_element = document.getElementById('DetallesPeli');
 
-    // Obtener detalles de la película o serie
-    obtenerDetalles(id_pelicula); 
+        const image = document.createElement('img');
+        image.src = `https://image.tmdb.org/t/p/w500${pelicula.poster_path}`;
+        image.alt = pelicula.title;
+        image.classList.add('imagenmm');
 
-    // Manejar clic en "Ver Recomendaciones"
-    const btnVerRecomendaciones = document.querySelector('.ver-recomendaciones');
-    btnVerRecomendaciones.addEventListener('click', function () {
-    mostrarRecomendaciones(id_pelicula); 
-    });
-});
+        const otros_detalles = document.createElement ('ul');
+        otros_detalles.classList.add("info-pelicula");
+        const title_li = document.createElement('li');
+        const title = document.createElement('h5');
+        title.textContent = pelicula.title;
+        title_li.append(title);
+        const rating_li = document.createElement('li');
+        const rating = document.createElement('h6');
+        rating.textContent = `Rating: ${pelicula.vote_average}`;
+        rating_li.append(rating);
+        const fecha_li = document.createElement('li');
+        const fecha = document.createElement('h6');
+        fecha.textContent = `Fecha de estreno: ${pelicula.release_date}`;
+        fecha_li.append(fecha);
+        const duracion_li = document.createElement('li');
+        const duracion = document.createElement('h6');
+        duracion_li.textContent = `Duración: ${pelicula.runtime} minutos`;
+        duracion_li.append(duracion);
+        const sinopsis_li = document.createElement('li');
+        const sinopsis = document.createElement('h6');
+        sinopsis.textContent = pelicula.overview;
+        sinopsis_li.append(sinopsis);
+        const generos_li = document.createElement('li');
+        const generos = document.createElement('h6');
+        generos.classList.add("genero");
+        const generosLinks = pelicula.genres.map(genero => {
+            const enlace = document.createElement('a');
+            enlace.href = `detallesgenero.html?id=${genero.id}&nombre=${genero.name}&tipo=pelicula`;
+            enlace.textContent = `${genero.name} `;
 
-function obtenerDetalles(id_pelicula) {
-    let acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
-    
-    let url_detallespeli = `https://api.themoviedb.org/3/movie/${id_pelicula}?api_key=${acaVaLaAPIKey}`;
+        return enlace;
+      });
+      generos.append(...generosLinks);
+      generos_li.append(generos);
 
-    fetch(url_detallespeli)
-        .then(response => response.json())
-        .then(data => {
-            actualizarDetalles(data);
-        })
-        .catch(error => console.error('Error al obtener detalles:', error));
-}
+      otros_detalles.append(title_li, rating_li, fecha_li, sinopsis_li, generos_li);
+      detalle_element.append(image, otros_detalles);
 
-function mostrarRecomendaciones(id_pelicula) {
-    let url_detallespeli = `https://api.themoviedb.org/3/movie/${id_pelicula}/recommendations?api_key=${acaVaLaAPIKey}`;
+    })
+    .catch(err => console.error(err));
 
+fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=es-AR&page=1&api_key=${APIKey}`)
+    .then(response => response.json())
+    .then(response => {
+        const recomendaciones_element = document.getElementById('Recomendaciones');
+        const recomendaciones = response.results;
+        recomendaciones.forEach(pelicula => {
+            const link = document.createElement('a');
+            link.href = `detallespeli.html?id=${pelicula.id}`;
+            const pelicula_div = document.createElement('div');
+            pelicula_div.classList.add('peli-preview');
 
-    fetch(url_detallespeli)
-        .then(response => response.json())
-        .then(data => {
-            // Actualizar la interfaz con las recomendaciones obtenidas
-            mostrarRecomendacionesEnInterfaz(data);
-        })
-        .catch(error => console.error('Error al obtener recomendaciones:', error));
-}
+            const pelicula_titulo = document.createElement('h4');
+            pelicula_titulo.textContent = pelicula.title;
+            pelicula_titulo.classList.add('peli-preview-titulo');
 
-function actualizarDetalles(detalles) {
-    // Actualizar los elementos HTML con los detalles de la película o serie
-    const tituloElement = document.querySelector('.titulo');
-    const calificacionElement = document.querySelector('.calificacion');
-    const fechaElement = document.querySelector('.fecha');
-    const generoElement = document.querySelector('.genero');
-    const duracionElement = document.querySelector('.duracion');
-    const sinopsisElement = document.querySelector('.sinopsis');
-    const imagenElement = document.querySelector('.imagenmm');
+            const pelicula_poster = document.createElement('img');
+            pelicula_poster.src = `https://image.tmdb.org/t/p/w500${pelicula.poster_path}`;
+            pelicula_poster.alt = pelicula.title;
+            pelicula_poster.classList.add('peli-preview-poster');
 
-    tituloElement.textContent = detalles.titulo;
-    calificacionElement.textContent = `Calificación: ${detalles.calificacion}`;
-    fechaElement.textContent = `Fecha de Estreno: ${detalles.fecha}`;
-    generoElement.textContent = `Género: ${detalles.genero}`;
-    duracionElement.textContent = `Duración: ${detalles.duracion} minutos`; // Solo si es una película
-    sinopsisElement.textContent = `Sinopsis: ${detalles.sinopsis}`;
-    imagenElement.src = detalles.urlImagen;
-}
+            const pelicula_release = document.createElement('h6');
+            pelicula_release.textContent = pelicula.release_date;
 
-function mostrarRecomendacionesEnInterfaz(recomendaciones) {
-    // Mostrar las recomendaciones en la interfaz
-    const recomendacionesList = document.querySelector('.recomendaciones-list');
-    recomendacionesList.innerHTML = ''; // Limpiar la lista antes de agregar las nuevas recomendaciones
+            pelicula_div.appendChild(pelicula_titulo);
+            pelicula_div.appendChild(pelicula_poster);
+            pelicula_div.appendChild(pelicula_release);
 
-    recomendaciones.forEach(recomendacion => {
-        const li = document.createElement('li');
-        const img = document.createElement('img');
-        img.src = recomendacion.urlImagen;
-        img.alt = recomendacion.titulo;
-        li.appendChild(img);
+            link.appendChild(pelicula_div);
 
-        // Manejar clic en una recomendación para redirigir al detalle
-        li.addEventListener('click', function () {
-            redirigirADetalle(recomendacion.id);
+            recomendaciones_element.appendChild(link);
         });
-
-        recomendacionesList.appendChild(li);
-    });
-
-    // Mostrar la lista de recomendaciones
-    const recomendacionesSection = document.querySelector('#recomendacionesC');
-    recomendacionesSection.classList.remove('display-none');
-}
-
-function redirigirADetalle(id) {
-    // Redirigir a la página de detalle con el ID proporcionado
-    window.location.href = `detalle.html?id=${id}`;
-}
-
+    })
+    .catch(err => console.error(err));
+})
 
