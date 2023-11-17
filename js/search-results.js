@@ -11,18 +11,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const peliculas = response.results;
         
         if (peliculas.length === 0) {
-        }peliculas_element.innerHTML = '<h3>No se encontraro resultados</h3>';
-          else {
+        peliculas_element.innerHTML = '<h3>No se encontraro resultados</h3>';
+        } else {
             peliculas_element.innerHTML = peliculas.map(pelicula => `
-          <a href=""detallespeli.html?id=${pelicula.id}"> 
-            <div class="peli-preview">
-              <h4 class="peli-preview-titulo">${pelicula.title}</h4>
-              <img src= "https://image.tmdb.org/t/p/w500${pelicula.poster_path}" alt="${pelicula.title}" class="peli-preview-poster">
-              <h6>${pelicula.release_date}</h6>
-            </div>
-          </a>
-          `).join('');
+      <a href=""detallespeli.html?id=${pelicula.id}"> 
+        <div class="peli-preview">
+            <h4 class="peli-preview-titulo">${pelicula.title}</h4>
+            <img src= "https://image.tmdb.org/t/p/w500${pelicula.poster_path}" alt="${pelicula.title}" class="peli-preview-poster">
+            <h6>${pelicula.release_date}</h6>
+        </div>
+      </a>
+    `).join('');
           }
-      })
-      .catch(err => console.error(err));
-  });
+    })
+    .catch(err => console.error(err));
+});
