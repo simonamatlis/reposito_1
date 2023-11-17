@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const peliculas = response.results;
         
         if (peliculas.length === 0) {
-        peliculas_element.innerHTML = '<h3>No se encontraro resultados</h3>';
+        peliculas_element.innerHTML = '<h3>No se encontraron resultados a su busqueda</h3>'; //si no hay peliculas/ series con ese nombre
         } else {
             peliculas_element.innerHTML = peliculas.map(pelicula => `
       <a href=""detallespeli.html?id=${pelicula.id}"> 

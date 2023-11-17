@@ -3,21 +3,19 @@ let acaVaLaAPIKey = "5cbe5fc6bbcd1b46780e719884ca45e5"
 let peliculasSection = document.querySelector(".peliculas-container");
 let seriesSection = document.querySelector(".series-container");
 
-let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; //obtiene el valor almacenado en el "favoritos" como cadena y la convierte en JSON. Si no hay datos en el almacenamiento o si hay un problema al convertir la cadena, se obtendrá null. || para proporcionar un valor predeterminado en caso de que el resultado de la operación anterior sea null. En este caso, se establece un array vacío como valor predeterminado.
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; 
 const section = document.querySelector(".container");
-let favs = ""; //creamos variable favs para almacenar las peliculas/ series favoritas del usuario
+let favs = ""; //creamos variable favs para almacenar las peliculas/ series favoritas
 
 console.log(favoritos);
 
-if (favoritos == null || favoritos.length === 0) {
-    // No hay favoritos
+if (favoritos == null || favoritos.length === 0) { // para cuando no hay favoritos
     peliculasSection.innerHTML = "<p>No hay elementos en favoritos</p>";
     seriesSection.innerHTML = "<p>No hay elementos en favoritos</p>";
 } else {
-    const fetchPromises = favoritos.map((favorito) => { //crea nuevo array
+    const fetchPromises = favoritos.map((favorito) => { // nuevo array
         let url = `https://api.themoviedb.org/3/movie/${favorito}?api_key=${apiKey}&language=en-US`;
 
-    // Retorna la promesa de fetch
     return fetch(url)
 
     .then(function (response) {
@@ -44,9 +42,9 @@ if (favoritos == null || favoritos.length === 0) {
     });
 });
 
-Promise.all(fetchPromises) // espera a que todas las promesas se resuelvan
+Promise.all(fetchPromises) // cuando todo se cumple
 .then((favsArray) => {
-    favsArray.forEach((fav) => { // Verificar si es película o serie
+    favsArray.forEach((fav) => { //  película o serie
         if (fav.includes("detail-movie")) {
             peliculasSection.innerHTML += fav;
         } else {

@@ -9,7 +9,7 @@ console.log(ContainerPeliculasPopulares);
 
 fetch(url_películaspopulares) 
   .then(function (response) {
-  return response.json(); // Convertir la información a formato JSON
+  return response.json(); // formato json
   }) 
   .then(function (data) {
   console.log(data.results);
