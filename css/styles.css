@@ -81,13 +81,38 @@ h2{
     font-size: 35px;
 }
 
-.container{
+.conteiner{
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-between;
     padding: 20px;
 }
 
+.conteiner ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.conteiner ul li{
+    margin-bottom: 10px;
+}
+
+.conteiner ul li a.imagen img {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.container ul li h3 {
+    margin-top: 5px;
+}
+
+.container ul li h4 {
+    margin-bottom: 10px;
+}
 .container .imagen{
     margin: 30px;
     text-align: center;
@@ -217,43 +242,6 @@ h6{
     margin-bottom: 10px;
 }
 
-.lista-pelis{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-.peli-preview { 
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    text-align: center;
-}
-
-.peli-preview-poster{
-    max-width: 220px;
-}
-
-.peli-preview-titulo{
-    max-width: 220px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.boton-mostrar-recomencaciones{
-    display: flex;
-    background-color:white ;
-    color: #CB1C40;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-right: auto;
-    font-size: 20px;
-    font-family:'Antonio', sans-serif;
-}
-
 @media (max-width: 400px) {
 
     .inicio {
@@ -367,4 +355,41 @@ h6{
         flex-direction: column;
         margin-left: 5px;
     }
+}
+
+.lista-pelis{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.peli-preview { 
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+}
+
+.peli-preview-poster{
+    max-width: 220px;
+}
+
+.peli-preview-titulo{
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.boton-mostrar-recomencaciones{
+    display: flex;
+    background-color:white ;
+    color: #CB1C40;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: auto;
+    font-size: 20px;
+    font-family:'Antonio', sans-serif;
 }
