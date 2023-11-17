@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <h6>${serie.first_air_date}</h6>
     </div>
   </a>
-`).join('');
+`).join(''); // todo en un solo str
     })
     .catch(err => console.error(err));
 });
