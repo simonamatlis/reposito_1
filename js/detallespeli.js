@@ -87,6 +87,8 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=es-AR&p
             recomendaciones_element.appendChild(link);
         });
     })
-    .catch(err => console.error(err));
 })
+.catch(function (error) {
+    console.log(error);
+    });
 

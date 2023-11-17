@@ -244,6 +244,33 @@ h6{
     margin-bottom: 10px;
 }
 
+.lista-pelis{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.peli-preview { 
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+}
+
+.peli-preview-poster{
+    max-width: 220px;
+}
+
+.peli-preview-titulo{
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
 @media (max-width: 400px) {
 
     .inicio {

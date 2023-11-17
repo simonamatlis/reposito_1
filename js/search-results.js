@@ -21,26 +21,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 const pelicula_div = document.createElement('div');
                 pelicula_div.classList.add('peli-preview');
 
-            const pelicula_titulo = document.createElement('h4');
-            pelicula_titulo.textContent = pelicula.title;
-            pelicula_titulo.classList.add('peli-preview-titulo');
+                const pelicula_titulo = document.createElement('h4');
+                pelicula_titulo.textContent = pelicula.title;
+                pelicula_titulo.classList.add('peli-preview-titulo');
 
-            const pelicula_poster = document.createElement('h4');
-            pelicula_poster.src = `https://image.tmdb.org/t/p/w500${pelicula.poster_path}`;
-            pelicula_poster.alt = pelicula.title;
-            pelicula_poster.classList.add('peli-preview-poster');
+                const pelicula_poster = document.createElement('h4');
+                pelicula_poster.src = `https://image.tmdb.org/t/p/w500${pelicula.poster_path}`;
+                pelicula_poster.alt = pelicula.title;
+                pelicula_poster.classList.add('peli-preview-poster');
 
-            const pelicula_release = document.createElement('h6');
-            pelicula_release.textContent = pelicula.release_date;
+                const pelicula_release = document.createElement('h6');
+                pelicula_release.textContent = pelicula.release_date;
 
-            pelicula_div.appendChild(pelicula_titulo);
-            pelicula_div.appendChild(pelicula_poster);
-            pelicula_div.appendChild(pelicula_release);
+                pelicula_div.appendChild(pelicula_titulo);
+                pelicula_div.appendChild(pelicula_poster);
+                pelicula_div.appendChild(pelicula_release);
 
-            link.appendChild(pelicula_div);
+                link.appendChild(pelicula_div);
 
-            peliculas_element.appendChild(link);
+                peliculas_element.appendChild(link);
         });
     })
-    .catch(err => console.error(err));
 })
+
+.catch(function (error) {
+    console.log(error);
+    });

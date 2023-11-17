@@ -46,4 +46,7 @@ fetch(`https://api.themoviedb.org/3/genre/tv/list?language=es&api_key=${APIKey}`
             generos_element.appendChild(genero_li);
         });
     })
-    .catch(err => console.error(err));
+
+    .catch(function (error) {
+        console.log(error);
+        });
