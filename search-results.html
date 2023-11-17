@@ -35,20 +35,18 @@
         </nav>
 
         <section class="barra">
-            <form id="buscador" class="form" action="search-results.html" method="GET">
-                <input id="busqueda" type="text" name="resultadosbusqueda" value="" placeholder="Búsqueda">
-                <button id="enviarform" class="detallelupa" type="submit">
-                </button>
+            <form class="form" action="search-results.html" method="GET" id="">
+                <input id="busqueda" type="text" name="busqueda" value="" placeholder="Búsqueda">
+                <button type="submit">Buscar</button>
             </form>
         </section>
 
     </header>
     
-        <h6 id="banner-resultado">Resultados de la búsqueda:</h6>
         <main>
-        <section id="ResultadosBusqueda" class="peliculas">
-        </section>
-        <button id="boton">Ir a</button>
+            <h2>Resultados de la busqueda</h2>
+            <div id="Resultados" class="lista-pelis">
+            </div>
         </main>
 
         <footer>
@@ -61,9 +59,7 @@
                     alt="Logo de nuestra página" class="logofooter"></a>
         </footer>
 
-        
-        <script src="./js/validarForm.js"></script>
-        <script src="./js/busqueda-demo.js"></script>
+         <script src="./js/search-results.js"></script>
 
 </body>
 </html>

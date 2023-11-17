@@ -32,9 +32,9 @@
         </nav>
 
         <section class="barra">
-            <form id="buscador" class="form" action="search-results.html" method="GET">
-            <input id="busqueda" type="text" name="resultadosbusqueda" value="" placeholder="Búsqueda">
-            <button id="enviarform" class="detallelupa" type="submit"></button>
+            <form class="form" action="search-results.html" method="GET" id="">
+            <input id="busqueda" type="text" name="busqueda" value="" placeholder="Búsqueda">
+            <button type="submit">Buscar</button>
             </form>
         </section>
 
@@ -43,27 +43,9 @@
     <main>
         <section class="peliculas">
             <div id="DetallesPeli" class="cajapeli1">
-                <img class="imagenmm" src="" alt="Mamma mia">
-                <div class="info-pelicula">
-                    <ul> 
-                        <li><h5 a class="titulo"></h5></li> 
-                        <li><h6 a class="calificacion"></h6></li>
-                        <li><h6 a class="fecha"></h6></li>
-                        <li><h6 a class="genero" href="detallesgenero.html"></h6></li>
-                        <li><h6 a class="duracion"></h6></li>
-                        <li><h6 a class="sinopsis"></h6></li>
-                    </ul>
-                    <section>
-                        <form action="./milista.html" method="GET">
-                            <input type="hidden" name="id" value="">
-                            <button class="agregar_favoritos" type="submit">☆</button>
-                        </form>
-                    </section>
-                <section id="recomendacionesC" class="recomendaciones">
-                    <button class="ver-recomendaciones uk-button uk-button-text recomendaciones-btn" type="button">Ver Recomendaciones</button>
-                    <ul class="recomendaciones-list display-none"></ul>
-                </section>
-                </div>
+            </div>
+            <h2>Recomendaciones</h2>
+            <div id="Recomendaciones" class="lista-pelis">
             </div>
         </section>
     </main>
@@ -72,7 +54,9 @@
     <hr class="linea">
     <a class="footerpadding" href="./index.html"><img src="./img/logo2" alt= "" class="logofooter"></a>
     <h3 class="paddingtopfooter">Mia Schwarzmaier - Sol Sejas - Simona Matlis</h3>
-    <a class="footerpadding" href="./index.html"><img src="./img/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" alt="Logo de nuestra página" class="logofooter"></a>
+    <a class="footerpadding" href="./index.html"><img 
+        src="./img/blue_long_2-9665a76b1ae401a510ec1e0ca40ddcb3b0cfe45f1d51b77a308fea0845885648.svg" 
+        alt="Logo de nuestra página" class="logofooter"></a>
 </footer>
                   
 <script src="./js/validarForm.js"></script>
