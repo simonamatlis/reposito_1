@@ -5,7 +5,7 @@ let seriesSection = document.querySelector(".series-container");
 
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; 
 const section = document.querySelector(".container");
-let favs = ""; //creamos variable favs para almacenar las peliculas/ series favoritas
+let favs = ""; //nueva variable favs para almacenar las pelis/ series favoritas
 
 console.log(favoritos);
 
@@ -42,7 +42,7 @@ if (favoritos == null || favoritos.length === 0) { // para cuando no hay favorit
     });
 });
 
-Promise.all(fetchPromises) // cuando todo se cumple
+Promise.all(fetchPromises) 
 .then((favsArray) => {
     favsArray.forEach((fav) => { //  película o serie
         if (fav.includes("detail-movie")) {
@@ -53,8 +53,8 @@ Promise.all(fetchPromises) // cuando todo se cumple
     });
 })
     
-.catch((error) => {
-    console.error("Error:", error);
-});
+.catch(function (error) {
+    console.log(error);
+    });
 }
 

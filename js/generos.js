@@ -18,7 +18,9 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?language=es&api_key=${APIKe
         .catch(err => console.error(err));
 
         fetch(`https://api.themoviedb.org/3/genre/tv/list?language=es&api_key=${APIKey}`)
-        .then(response => response.json())
+        .then(function (response) {
+            return response.json(); 
+            }) 
         .then(response => {
           const generos_element = document.getElementById('GenerosSeries');
           const generos = response.genres;       
@@ -31,4 +33,6 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?language=es&api_key=${APIKe
           </li>
           `).join('');
         })
-        .catch(err => console.error(err));
+        .catch(function (error) {
+            console.log(error);
+            });

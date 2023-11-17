@@ -129,6 +129,18 @@ h5 {
     margin: 15px;
 }
 
+.boton-mostrar-recomendaciones {
+    display: flex;
+    background-color: white;
+    color: #CB1C40;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: 'Antonio', sans-serif;
+}
+
 h1 {
     font-family: 'Anton', sans-serif;
     font-family: 'Antonio', sans-serif;
@@ -212,9 +224,55 @@ h6{
 }
 
 .logofooter{
+    display: flex;
     width: 200px;
     margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
 }
+
+.lista-pelis {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.display-none {
+    display: none;
+}
+
+.peli-preview {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+}
+
+.peli-preview-titulo {
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.peli-preview-poster {
+    width: 220px;
+}
+
+.boton-mostrar-recomendaciones {
+    display: flex;
+    background-color: white;
+    color: #CB1C40;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: 'Antonio', sans-serif;
+}
+
 
 @media (max-width: 400px) {
 
@@ -331,39 +389,3 @@ h6{
     }
 }
 
-.lista-pelis{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-.peli-preview { 
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    text-align: center;
-}
-
-.peli-preview-poster{
-    max-width: 220px;
-}
-
-.peli-preview-titulo{
-    max-width: 220px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.boton-mostrar-recomencaciones{
-    display: flex;
-    background-color:white ;
-    color: #CB1C40;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-right: auto;
-    font-size: 20px;
-    font-family:'Antonio', sans-serif;
-}
