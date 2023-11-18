@@ -41,20 +41,5 @@ if (favoritos == null || favoritos.length === 0) {
         console.log("Error:", error);
     });
 });
-
-Promise.all(fetchPromises) 
-.then((favsArray) => {
-    favsArray.forEach((fav) => { 
-        if (fav.includes("detail-movie")) {
-            peliculasSection.innerHTML += fav;
-        } else {
-            seriesSection.innerHTML += fav;
-        }
-    });
-})
-    
-.catch(function (error) {
-    console.log(error);
-    });
 }
 

@@ -116,7 +116,6 @@ h5 {
     font-size: 30px;
     color: white;
     background-color: #CB1C40;
-    margin-top: 0%;
     margin-left: 85%;
 }
 
@@ -163,7 +162,6 @@ h6{
     font-family: 'Antonio', sans-serif;
     font-family: 'Lato', sans-serif;
     font-family: 'Roboto', sans-serif;
-    margin-left: 10px;
 }
 
 .peliculas{
@@ -191,6 +189,7 @@ h6{
     display: flex;
     flex-direction: column;
     margin-left: 5px;
+    
 }
 
 .a {
@@ -254,7 +253,7 @@ h6{
     max-width: 220px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    
 }
 
 .peli-preview-poster {
