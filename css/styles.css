@@ -96,6 +96,14 @@ h2{
     text-align: center;
 }
 
+.p {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Antonio', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+}
+
 h3 {
     font-family: 'Anton', sans-serif;
     font-family: 'Antonio', sans-serif;
