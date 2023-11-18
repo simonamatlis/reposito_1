@@ -25,7 +25,17 @@ document.addEventListener("DOMContentLoaded", function () {
       detalle_element.innerHTML = imageHTML + otros_detallesHTML;
 
     })
-    .catch(err => console.error(err));
+    .catch(function (error) {
+      console.log(error);
+      });
+});
+
+
+function mostrarRecomendaciones() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id');
+
+  const APIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
 
   fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=es-AR&page=1&api_key=${APIKey}`)
     .then(response => response.json())
@@ -34,19 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
       const recomendaciones = response.results;
 
       recomendaciones_element.innerHTML = recomendaciones.map(pelicula => `
-      <a href="detallespeli.html?id=${pelicula.id}">
-      <div class="peli-preview">
+  <a href="detallespeli.html?id=${pelicula.id}">
+    <div class="peli-preview">
       <h4 class="peli-preview-titulo">${pelicula.title}</h4>
       <img src="https://image.tmdb.org/t/p/w500${pelicula.poster_path}" alt="${pelicula.title}" class="peli-preview-poster">
-      <h6>${pelicula.release_date}</h6></div>
-      </a>
+      <h6>${pelicula.release_date}</h6>
+    </div>
+  </a>
 `).join('');
     })
-    .catch(err => console.error(err));
-});
-
-function toggleRecomendaciones() {
-  const recomendaciones = document.getElementById('Recomendaciones');
-  recomendaciones.classList.toggle('lista-pelis');
-  recomendaciones.classList.toggle('display-none');
+    .catch(function (error) {
+      console.log(error);
+      });
 }

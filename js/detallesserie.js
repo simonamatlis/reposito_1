@@ -23,7 +23,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       detalle_element.innerHTML = imageHTML + otros_detallesHTML;
     })
-    .catch(err => console.error(err));
+    .catch(function (error) {
+      console.log(error);
+      });
+
+
+});
+
+function mostrarRecomendaciones() {
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id');
+
+  const APIKey = "5cbe5fc6bbcd1b46780e719884ca45e5";
 
   fetch(`https://api.themoviedb.org/3/tv/${id}/recommendations?language=es-AR&page=1&api_key=${APIKey}`)
     .then(response => response.json())
@@ -39,13 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
       <h6>${serie.first_air_date}</h6>
     </div>
   </a>
-`).join(''); // todo en un solo str
+`).join('');
     })
-    .catch(err => console.error(err));
-});
-
-function toggleRecomendaciones() {
-  const recomendaciones = document.getElementById('Recomendaciones');
-  recomendaciones.classList.toggle('lista-pelis');
-  recomendaciones.classList.toggle('display-none');
+    .catch(function (error) {
+      console.log(error);
+      });
 }
